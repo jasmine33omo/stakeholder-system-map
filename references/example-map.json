@@ -1,0 +1,40 @@
+{
+  "title": "Community Repair Kiosk Stakeholder System",
+  "subtitle": "Illustrative example for a neighborhood circular-economy service",
+  "canvas": { "width": 2200, "height": 1500, "margin": 120 },
+  "style": {
+    "background": "#F8F6F0",
+    "title_color": "#222222",
+    "text_color": "#2F3437",
+    "muted_text": "#667085",
+    "font": "Arial",
+    "node_radius": 58,
+    "line_width": 4,
+    "show_node_roles": false,
+    "palette": ["#3A6EA5", "#5B8E7D", "#E3B23C", "#C1666B", "#6D597A"]
+  },
+  "groups": [
+    { "id": "project", "label": "Designed service", "color": "#222222" },
+    { "id": "community", "label": "Community", "color": "#5B8E7D" },
+    { "id": "operators", "label": "Operators", "color": "#3A6EA5" },
+    { "id": "institutions", "label": "Institutions", "color": "#6D597A" },
+    { "id": "market", "label": "Market actors", "color": "#E3B23C" }
+  ],
+  "nodes": [
+    { "id": "kiosk", "label": "Repair kiosk", "group": "project", "type": "project", "x": 0.5, "y": 0.5 },
+    { "id": "residents", "label": "Residents", "group": "community", "type": "primary", "x": 0.22, "y": 0.48 },
+    { "id": "volunteers", "label": "Repair volunteers", "group": "operators", "type": "operator", "x": 0.44, "y": 0.22 },
+    { "id": "municipality", "label": "Municipality", "group": "institutions", "type": "institution", "x": 0.74, "y": 0.28 },
+    { "id": "waste-team", "label": "Waste team", "group": "institutions", "type": "institution", "x": 0.78, "y": 0.62 },
+    { "id": "local-shops", "label": "Local shops", "group": "market", "type": "partner", "x": 0.48, "y": 0.78 }
+  ],
+  "edges": [
+    { "from": "residents", "to": "kiosk", "label": "Broken items", "type": "resource", "strength": 0.9, "show_label": true, "certainty": "user-provided" },
+    { "from": "kiosk", "to": "residents", "label": "Repair service", "type": "service", "strength": 0.95, "show_label": true, "certainty": "user-provided" },
+    { "from": "volunteers", "to": "kiosk", "label": "Skills and labor", "type": "service", "strength": 0.8, "certainty": "inferred" },
+    { "from": "municipality", "to": "kiosk", "label": "Permit and space", "type": "authority", "strength": 0.7, "certainty": "inferred" },
+    { "from": "kiosk", "to": "waste-team", "label": "Diverted waste data", "type": "information", "strength": 0.6, "certainty": "inferred" },
+    { "from": "local-shops", "to": "kiosk", "label": "Parts and referrals", "type": "resource", "strength": 0.5, "certainty": "inferred" },
+    { "from": "local-shops", "to": "kiosk", "label": "Repair vs. replacement tension", "type": "conflict", "strength": 0.4, "certainty": "inferred" }
+  ]
+}
