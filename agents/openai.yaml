@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stakeholder System Map"
+  short_description: "Research stakeholders and render system maps"
+  default_prompt: "Use $stakeholder-system-map to analyze my design idea and create a portfolio-ready stakeholder system map."
